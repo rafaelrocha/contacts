@@ -8,7 +8,11 @@ angular.module('myApp', [
   'myApp.controllers'
 ]).
 config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/list', {templateUrl: 'partials/list.html', controller: 'List'});
-  $routeProvider.when('/form', {templateUrl: 'partials/form.html', controller: 'Form'});
+  $routeProvider.when('/list', 
+  	{templateUrl: 'partials/list.html', controller: 'List'});
+  $routeProvider.when('/create', 
+  	{templateUrl: 'partials/create.html', controller: 'Create'});
+  $routeProvider.when('/edit/:id', 
+  	{templateUrl: 'partials/edit.html', controller: 'Edit'});
   $routeProvider.otherwise({redirectTo: '/list'});
 }]);

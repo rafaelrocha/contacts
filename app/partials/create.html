@@ -2,19 +2,19 @@
 	<div class="large-12 medium-12 small-12 columns">
 			<div class="row">
 				<div class="large-12 medium-12 small-12 columns">
-    			<input type="text" placeholder="Name" />
+    			<input type="text" ng-model="name" placeholder="Name" />
   			</div>
 			</div>
 			<div class="row">
 				<div class="large-12 medium-12 small-12 columns">
-					<input type="text" placeholder="Phone" />
+					<input type="text" ng-model="number" placeholder="Phone" />
 				</div>
 				<div class="large-12 medium-12 small-12 columns">
-					<input type="text" placeholder="Address" />
+					<input type="text" ng-model="address" placeholder="Address" />
 				</div>
 			</div>
 			
-			<a href="#/view1" class="button large-5 medium-5 small-5 columns">Ok</a>
+			<a href="#/view1" ng-click="create()" class="button large-5 medium-5 small-5 columns">Ok</a>
 			<a href="#/view1" class="button large-5 medium-5 small-5 columns">Cancel</a>
 	</div>
 </div>
