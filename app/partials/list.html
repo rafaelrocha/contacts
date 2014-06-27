@@ -7,12 +7,21 @@
 <div class="row">
 	<div class="large-24 medium-24 small-24 columns">
 	  <div class="panel" ng-repeat="contact in contacts | filter:query">
-	    <h5>{{contact.name}}</h5>
-	    <p>{{contact.number}}</p>
-	    <p>{{contact.address}}</p>
-	    <a ng-href="#/edit/{{contact.id}}">Edit</a>
+	    <div class="clearfix">
+		    <span class="left">{{contact.name}}</span>
+		    <a ng-href="#/edit/{{contact.id}}" class="right">Edit</a>
+			</div>
+
+			<div class="clearfix">
+		    <span class="left">{{contact.number}}</span>
+		    <span class="right">{{contact.address}}</span>
+	    </div>
 	  </div>
-	  
-	  <a href="#/create" class="button">Add a new contact</a>
 	</div>
+	
 </div>
+<div class="row">
+	<div class="large-24 medium-24 small-24 columns">
+		<a href="#/create" class="button">Add a new contact</a>
+	</div>
+<div class="row">
