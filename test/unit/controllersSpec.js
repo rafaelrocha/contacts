@@ -1,20 +1,71 @@
 'use strict';
 
-/* jasmine specs for controllers go here */
+describe('edit controller', function(){
+  var $scope = {}, $routeParams = {};
 
-describe('controllers', function(){
-  beforeEach(module('myApp.controllers'));
+  var contactMock;
 
+  beforeEach(function (){    
+    module('myApp');
+    
+    inject(function($injector) {
+      contactMock = $injector.get('contact');
+    })
+  });
+ 
+  it('should show contact data to edit', 
+    inject(function($controller) {
+    
+    //setup - data
+    $routeParams.id = 1;
 
-  it('should ....', inject(function($controller) {
-    //spec body
-    var myCtrl1 = $controller('MyCtrl1', { $scope: {} });
-    expect(myCtrl1).toBeDefined();
+    var contact = {
+      name: 'Rafael',
+      number: '3543434343',
+      address: 'Rua zezim'
+    };
+
+    //setup - expectations
+    spyOn(contactMock, 'get').and.returnValue(contact);
+
+    //exercise
+    var list = $controller('Edit', { 
+      $scope: $scope,
+      $routeParams: $routeParams, 
+      Contact: contactMock
+    });
+
+    //verify
+    expect($scope.name).toEqual(contact.name);
+    expect($scope.number).toEqual(contact.number);
+    expect($scope.address).toEqual(contact.address);
   }));
 
-  it('should ....', inject(function($controller) {
-    //spec body
-    var myCtrl2 = $controller('MyCtrl2', { $scope: {} });
-    expect(myCtrl2).toBeDefined();
+  it('should save new contact data after edited', 
+    inject(function($controller) {
+
+    //setup - data
+    $routeParams.id = 1;
+    $scope = {
+      name: 'Rafael',
+      number: '3543434343',
+      address: 'Rua zezim'
+    };
+
+    //setup - expectations
+    spyOn(contactMock, 'get').and.returnValue($scope);
+    spyOn(contactMock, 'edit');
+
+    //exercise
+    var list = $controller('Edit', { 
+      $scope: $scope,
+      $routeParams: $routeParams, 
+      Contact: contactMock
+    });
+    $scope.edit();
+
+    //verify
+    expect(contactMock.edit.calls.any()).toEqual(true);
   }));
+
 });

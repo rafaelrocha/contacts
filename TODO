@@ -1,3 +1,7 @@
 * [DONE] User filter to filter contacts
-* Improve contact list layout
 * Use filter to format number
+
+Technical debts:
+================
+* Improve contact list layout
+* FIX karma PATH on package.json
