@@ -1,6 +1,7 @@
 * [DONE] User filter to filter contacts
 * Use filter to format number
 * validate mandatory fields
+* E2E tests
 
 Technical debts:
 ================
