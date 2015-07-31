@@ -77,3 +77,5 @@ Single run of the tests and then exit.
 ```
 npm run test-single-run
 ```
+
+Codeship testing
